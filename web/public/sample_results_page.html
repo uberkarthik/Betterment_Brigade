@@ -10,7 +10,67 @@
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 .myLink {display: none}
+input[type=text] {
+    width: 280px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+input[type=text]:focus {
+    width: 100%;
+}
+input[type=datetime-local] {
+    width: 280px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+
+}
+input[type=datetime-local]:focus {
+    width: 100%;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 1px;
+    cursor: pointer;
+}
+
+#froala-editor:focus {
+  width: 100%;
+}
+#froala-editor {
+  width: 280px;
+  line-height: 6em;
+}
+#submit{
+  background-color: rgb(94, 161, 88);
+
+}
+
 </style>
+
 <body class="w3-light-grey">
 
 <!-- Navigation Bar -->
@@ -19,60 +79,44 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
   <a href="#Home" class="w3-bar-item w3-button w3-light-grey w3-mobile">Home</a>
   <a href="create_event_page.html" class="w3-bar-item w3-button w3-mobile">Create an Event</a>
   <a href="search_events_page.html" class="w3-bar-item w3-button w3-mobile">Search Events</a>
-  <a href="login.html" id="log-in" class="w3-bar-item w3-button w3-mobile">Log In</a>
+  <a href="#Log_In" class="w3-bar-item w3-button w3-mobile">Log In</a>
   <a href="#Sign_Up" class="w3-bar-item w3-button w3-mobile">Sign Up</a>
 </div>
 
 <!-- Header -->
 <header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
-  <img class="w3-image" src="Lisk_Feng_ST1.jpg" width="1500" height="700">
-  <div class="w3-display-middle" style="width:65%">
-    <div class="w3-container w3-red">
-      <h2><i class="fas fa-american-sign-language-interpreting"></i>Betterment Brigade</h2>
-    </div>
-    <div class="w3-container w3-white w3-padding-16">
-      <h3>Find your dream opportunities here</h3>
-      <form action="/action_page.php" target="_blank">
-        <div class="w3-row-padding" style="margin:0 -16px;">
-          <div class="w3-margin-bottom">
-            <input class="w3-input w3-border" type="text" placeholder="keyword or zipcode">
-          </div>
-        </div>
-        <button class="w3-button w3-dark-grey" type="submit"><i class="fa fa-search w3-margin-right"></i> Search opportunities</button>
-      </form>
-    </div>
-  </div>
+  <img class="w3-image" src="https://i.imgur.com/q48inZz.jpg" width=100% height="700">
+  <div class="w3-display-middle" style="width:65%"></div>
 </header>
 
 <!-- Page content -->
+<div class="w3-bar w3-white w3-large" width =100%>
+    <a href="#" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fas fa-american-sign-language-interpreting"></i>Events List</a>   
+  </div>
+
+
 <div class="w3-content" style="max-width:1100px;">
 
 
   <!-- Explore Nature -->
+  
+  
   <div class="w3-container">
-    <h2>Featured Volunteer Opportunities</h2>
-    <p>Join us and change the world.</p>
+    
+            <header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
+                <img src="https://i.imgur.com/LVSiGIp.png" width="1000" height="500">
+                <div class="w3-display-middle" style="width:65%">
+                  <div class="w3-container w3-red">
+                    <h2><i class="fas fa-american-sign-language-interpreting"></i>Events List</h2>
+                  </div>
+                  <div id="container">
+                  </div>   
+                </div>
+              </header>
   </div>
-  <div class="w3-row-padding">
-    <div class="w3-half w3-margin-bottom">
-      <a href="#Ocean_helper"><img src="oppo1.png" alt="Clean the beach" style="width:100%"></a>
-      <div class="w3-container w3-white">
-        <h3>Ocean helper</h3>
-        <p class="w3-opacity">Event date: 8/20/2020</p>
-        <p class="w3-opacity">Event location: venice beach/LA</p>
-        <p>Come help clean the garbage off venice beach</p>
-      </div>
-    </div>
-    <div class="w3-half w3-margin-bottom">
-      <a href="#Plant_a_tree"><img src="oppo2.jpg" alt="Plant a tree" style="width:100%"></a>
-      <div class="w3-container w3-white">
-        <h3>Plant a tree</h3>
-        <p class="w3-opacity">Event date: 4/13/2019 (Only 3 days left!)</p>
-        <p class="w3-opacity">Event location: Muirwood park/SF</p>
-        <p>Plant a tree and bring more green to the world.</p>
-      </div>
-    </div>
-  </div>
+    
+
+
 
   <!-- Newsletter -->
   <div class="w3-container">
@@ -116,28 +160,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
   </div>
 </footer>
 
-<script>
-// Tabs
-function openLink(evt, linkName) {
-  var i, x, tablinks;
-  x = document.getElementsByClassName("myLink");
-  for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < x.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
-  }
-  document.getElementById(linkName).style.display = "block";
-  evt.currentTarget.className += " w3-red";
-}
-// Click on the first tablink on load
-document.getElementsByClassName("tablink")[0].click();
-</script>
-
-<!-- Import and configure the Firebase SDK -->
-<!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
-<!-- If you do not want to serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
+<script src="jquery/js/jquery-1.9.0.min.js"></script>
+<script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
 <script src="/__/firebase/5.5.9/firebase-app.js"></script>
 <script src="/__/firebase/5.5.9/firebase-auth.js"></script>
 <script src="/__/firebase/5.5.9/firebase-database.js"></script>
@@ -145,7 +169,7 @@ document.getElementsByClassName("tablink")[0].click();
 <script src="/__/firebase/5.5.9/firebase-messaging.js"></script>
 <script src="/__/firebase/init.js"></script>
 
-<script src="scripts/betterment.js"></script>
+<script src="scripts/sample_results.js"></script>
 
 </body>
 </html>

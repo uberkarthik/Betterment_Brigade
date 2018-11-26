@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<title>Betterment Brigade</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+.myLink {display: none}
+input[type=text] {
+    width: 280px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+input[type=text]:focus {
+    width: 100%;
+}
+input[type=datetime-local] {
+    width: 280px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+
+}
+input[type=datetime-local]:focus {
+    width: 100%;
+}
+input[type=submit] {
+    margin: 8px;
+    padding: 7px;
+    width: 20%;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow:none;
+}
+
+#froala-editor:focus {
+  width: 100%;
+}
+#froala-editor {
+  width: 280px;
+  line-height: 6em;
+}
+#submit{
+  background-color: rgb(94, 161, 88);
+
+}
+
+</style>
+
+<body class="w3-light-grey">
+
+<!-- Navigation Bar -->
+<div class="w3-bar w3-white w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fas fa-american-sign-language-interpreting"></i>Betterment Brigade</a>
+  <a href="#Home" class="w3-bar-item w3-button w3-light-grey w3-mobile">Home</a>
+  <a href="create_event_page.html" class="w3-bar-item w3-button w3-mobile">Create an Event</a>
+  <a href="search_events_page.html" class="w3-bar-item w3-button w3-mobile">Search Events</a>
+  <a href="login.html" id="log-in" class="w3-bar-item w3-button w3-mobile">Log In</a>
+  <a href="#Sign_Up" class="w3-bar-item w3-button w3-mobile">Sign Up</a>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
+  <img class="w3-image" src="https://i.imgur.com/q48inZz.jpg" width=100% height="700">
+  <div class="w3-display-middle" style="width:65%"></div>
+</header>
+
+<!-- Page content -->
+<div class="w3-bar w3-white w3-large" width =100%>
+    <a href="#" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fas fa-american-sign-language-interpreting"></i>Search Events</a>   
+  </div>
+
+
+<div class="w3-content" style="max-width:1100px;">
+  <!-- Explore Nature -->
+  <div class="w3-container">
+            <header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
+                <img src="https://i.imgur.com/LVSiGIp.png" width="1000" height="500">
+                <div class="w3-display-middle" style="width:65%">
+                  <div class="w3-container w3-red">
+                    <h2><i class="fas fa-american-sign-language-interpreting"></i>Search Events</h2>
+                  </div>
+                  <div class="w3-container w3-white w3-padding-1">
+                    <h3>Enter Preferences Here:</h3>
+                    <form action="/action_page.php" target="_blank">
+                      <div class="w3-row-padding" style="margin:0 -16px;">
+                        <div class="w3-margin-bottom">
+                          <input class="w3-input w3-border " type="text" placeholder="search...">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                      <div class="w3-container w3-white w3-padding-1">
+                            <h3>Location:</h3>
+                            <form action="/action_page.php" target="_blank">
+                              <div class="w3-row-padding" style="margin:0 -16px;">
+                                <div class="w3-margin-bottom">
+                                  <input class="w3-input w3-border" type="text" placeholder="enter zipcode..." width>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                                      <div class="w3-container w3-white w3-padding-1">
+                                              <div class="w3-row-padding" style="margin:0 -16px;">
+                                                <div class="w3-margin-bottom">
+                                                        <input type="submit" id="submit"value="Submit" onclick="window.location='sample_results_page.html'">
+                                                    </div>
+                                              </div>
+                                          </div>    
+                </div>
+              </header>
+  </div>
+    
+
+
+
+  <!-- Newsletter -->
+  <div class="w3-container">
+    <div class="w3-panel w3-padding-16 w3-grey w3-card ">
+      <h2>Get the notification first!</h2>
+      <p>Join our newsletter.</p>
+      <label>E-mail</label>
+      <input class="w3-input w3-border" type="text" placeholder="Your Email address">
+      <button type="button" class="w3-button w3-red w3-margin-top">Subscribe</button>
+    </div>
+  </div>
+  
+  <!-- Contact -->
+  <div class="w3-container">
+    <h2>Contact</h2>
+    <p>Need help?</p>
+    <i class="fa fa-map-marker" style="width:30px"></i> Los Angeles, US<br>
+    <i class="fa fa-phone" style="width:30px"></i> Phone: +00 123456<br>
+    <i class="fa fa-envelope" style="width:30px"> </i> Email: betterment_bridage@gmail.com<br>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
+      <p><button class="w3-button w3-black w3-padding-large" type="submit">SEND MESSAGE</button></p>
+    </form>
+  </div>
+  
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-center w3-opacity w3-margin-bottom">
+  <h5>Find Us On</h5>
+  <div class="w3-xlarge w3-padding-16">
+    <i class="fab fa-facebook-square w3-hover-opacity"></i>
+    <i class="fab fa-twitter-square w3-hover-opacity"></i>
+    <i class="fab fa-snapchat-square w3-hover-opacity"></i>
+    <i class="fab fa-instagram w3-hover-opacity"></i>
+    <i class="fab fa-pinterest-square w3-hover-opacity"></i>
+    <i class="fab fa-linkedin w3-hover-opacity"></i>
+  </div>
+</footer>
+
+<script src="jquery/js/jquery-1.9.0.min.js"></script>
+<script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
+<script src="/__/firebase/5.5.9/firebase-app.js"></script>
+<script src="/__/firebase/5.5.9/firebase-auth.js"></script>
+<script src="/__/firebase/5.5.9/firebase-database.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<!-- <script src="scripts/login.js"></script> -->
+</body>
+</html>

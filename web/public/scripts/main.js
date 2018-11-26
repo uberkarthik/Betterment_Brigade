@@ -13,7 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use strict';
+
+
+const urlParams = new URLSearchParams(window.location.search);
+const myParam = urlParams.get('id');
+var messages = '/messages/' + myParam + '/';
+const ref = firebase.database().ref(messages);
 
 // Signs-in Friendly Chat.
 function signIn() {
@@ -57,14 +62,14 @@ function loadMessages() {
     displayMessage(snap.key, data.name, data.text, data.profilePicUrl, data.imageUrl);
   };
 
-  firebase.database().ref('/messages/').limitToLast(12).on('child_added', callback);
-  firebase.database().ref('/messages/').limitToLast(12).on('child_changed', callback);
+  ref.limitToLast(12).on('child_added', callback);
+  ref.limitToLast(12).on('child_changed', callback);
 }
 
 // Saves a new message on the Firebase DB.
 function saveMessage(messageText) {
   // Add a new message entry to the Firebase database.
-  return firebase.database().ref('/messages/').push({
+  return ref.push({
     name: getUserName(),
     text: messageText,
     profilePicUrl: getProfilePicUrl()
@@ -77,7 +82,7 @@ function saveMessage(messageText) {
 // This first saves the image in Firebase storage.
 function saveImageMessage(file) {
   // 1 - We add a message with a loading icon that will get updated with the shared image.
-  firebase.database().ref('/messages/').push({
+  ref.push({
     name: getUserName(),
     imageUrl: LOADING_IMAGE_URL,
     profilePicUrl: getProfilePicUrl()
