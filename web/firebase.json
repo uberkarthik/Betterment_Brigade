@@ -1,7 +1,14 @@
 {
   "hosting": {
     "public": "./public",
-    "headers": [{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/views/index.html",
+      "type": 302
+    }
+  ],
+      "headers": [{
       "source" : "**/*.@(js|html)",
       "headers" : [ {
         "key" : "Cache-Control",
