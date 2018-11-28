@@ -35,18 +35,16 @@ function authStateObserver(user) {
     $("#log-in").text(getUserName());
     $("#log-out").removeClass("hide");
     console.log("hia")
-  } else { // User is signed out!
-
-
-  }
+  } else { // User is signed out! 
+        }
 }
 
 
-$( document ).ready(function() {
+$(document).ready(function() {
 	firebase.auth().onAuthStateChanged(authStateObserver);
 
 	$("#log-out").click(function(){
 		signOut();
-	})
+	});
 
 });

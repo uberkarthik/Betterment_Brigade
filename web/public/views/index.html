@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <title>Betterment Brigade</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,20 +8,36 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<script src="../jquery/js/jquery-1.9.0.min.js"></script>
+<script src="../jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
+<script src="/__/firebase/5.5.9/firebase-app.js"></script>
+<script src="/__/firebase/5.5.9/firebase-auth.js"></script>
+<script src="/__/firebase/5.5.9/firebase-database.js"></script>
+<script src="/__/firebase/5.5.9/firebase-storage.js"></script>
+<script src="/__/firebase/5.5.9/firebase-messaging.js"></script>
+<script src="/__/firebase/init.js"></script>
+<script src="../scripts/l_flow.js"></script>
+<script src="../scripts/betterment.js"></script>
+<!-- Import and configure the Firebase SDK -->
+<!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
+<!-- If you do not want to serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
+
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 .myLink {display: none}
+.hide{
+  display:none;  
+}
 </style>
 <body class="w3-light-grey">
 
 <!-- Navigation Bar -->
 <div class="w3-bar w3-white w3-large">
-  <a href="#" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fas fa-american-sign-language-interpreting"></i>Betterment Brigade</a>
-  <a href="#Home" class="w3-bar-item w3-button w3-light-grey w3-mobile">Home</a>
+  <a href="index.html" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fas fa-american-sign-language-interpreting"></i>Betterment Brigade</a>
   <a href="create_event_page.html" class="w3-bar-item w3-button w3-mobile">Create an Event</a>
   <a href="search_events_page.html" class="w3-bar-item w3-button w3-mobile">Search Events</a>
-  <a href="login.html" id="log-in" class="w3-bar-item w3-button w3-mobile">Log In</a>
-  <a href="#Sign_Up" class="w3-bar-item w3-button w3-mobile">Sign Up</a>
+  <a href="login.html" id="log-in" class="w3-bar-item w3-button w3-mobile">Log In/Sign Up</a>
+  <a href="" class = "hide" id="log-out" class="w3-bar-item w3-button w3-mobile">Sign Out</a>
 </div>
 
 <!-- Header -->
@@ -32,15 +49,33 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
     </div>
     <div class="w3-container w3-white w3-padding-16">
       <h3>Find your dream opportunities here</h3>
-      <form action="/action_page.php" target="_blank">
-        <div class="w3-row-padding" style="margin:0 -16px;">
-          <div class="w3-margin-bottom">
-            <input class="w3-input w3-border" type="text" placeholder="keyword or zipcode">
-          </div>
-        </div>
-        <button class="w3-button w3-dark-grey" type="submit"><i class="fa fa-search w3-margin-right"></i> Search opportunities</button>
-      </form>
-    </div>
+      <div class="w3-container w3-white w3-padding-1">
+                    <h3>Enter Preferences Here:</h3>
+                    <form action="/action_page.php" target="_blank">
+                      <div class="w3-row-padding" style="margin:0 -16px;">
+                        <div class="w3-margin-bottom">
+                          <input class="w3-input w3-border " type="text" placeholder="search...">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                      <div class="w3-container w3-white w3-padding-1">
+                            <h3>Location:</h3>
+                            <form action="/action_page.php" target="_blank">
+                              <div class="w3-row-padding" style="margin:0 -16px;">
+                                <div class="w3-margin-bottom">
+                                  <input class="w3-input w3-border" type="text" placeholder="enter zipcode..." width>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                                      <div class="w3-container w3-white w3-padding-1">
+                                              <div class="w3-row-padding" style="margin:0 -16px;">
+                                                <div class="w3-margin-bottom">
+                                                        <input type="submit" id="submit"value="Submit" onclick="window.location='sample_results_page.html'">
+                                                    </div>
+                                              </div>
+                                          </div>    
   </div>
 </header>
 
@@ -49,31 +84,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 
 
   <!-- Explore Nature -->
-  <div class="w3-container">
-    <h2>Featured Volunteer Opportunities</h2>
-    <p>Join us and change the world.</p>
-  </div>
-  <div class="w3-row-padding">
-    <div class="w3-half w3-margin-bottom">
-      <a href="#Ocean_helper"><img src="oppo1.png" alt="Clean the beach" style="width:100%"></a>
-      <div class="w3-container w3-white">
-        <h3>Ocean helper</h3>
-        <p class="w3-opacity">Event date: 8/20/2020</p>
-        <p class="w3-opacity">Event location: venice beach/LA</p>
-        <p>Come help clean the garbage off venice beach</p>
-      </div>
-    </div>
-    <div class="w3-half w3-margin-bottom">
-      <a href="#Plant_a_tree"><img src="oppo2.jpg" alt="Plant a tree" style="width:100%"></a>
-      <div class="w3-container w3-white">
-        <h3>Plant a tree</h3>
-        <p class="w3-opacity">Event date: 4/13/2019 (Only 3 days left!)</p>
-        <p class="w3-opacity">Event location: Muirwood park/SF</p>
-        <p>Plant a tree and bring more green to the world.</p>
-      </div>
-    </div>
-  </div>
-
+  
   <!-- Newsletter -->
   <div class="w3-container">
     <div class="w3-panel w3-padding-16 w3-grey w3-card ">
@@ -85,37 +96,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
     </div>
   </div>
   
-  <!-- Contact -->
-  <div class="w3-container">
-    <h2>Contact</h2>
-    <p>Need help?</p>
-    <i class="fa fa-map-marker" style="width:30px"></i> Los Angeles, US<br>
-    <i class="fa fa-phone" style="width:30px"></i> Phone: +00 123456<br>
-    <i class="fa fa-envelope" style="width:30px"> </i> Email: betterment_bridage@gmail.com<br>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
-      <p><button class="w3-button w3-black w3-padding-large" type="submit">SEND MESSAGE</button></p>
-    </form>
-  </div>
-  
 <!-- End page content -->
 </div>
-
-<!-- Footer -->
-<footer class="w3-container w3-center w3-opacity w3-margin-bottom">
-  <h5>Find Us On</h5>
-  <div class="w3-xlarge w3-padding-16">
-    <i class="fab fa-facebook-square w3-hover-opacity"></i>
-    <i class="fab fa-twitter-square w3-hover-opacity"></i>
-    <i class="fab fa-snapchat-square w3-hover-opacity"></i>
-    <i class="fab fa-instagram w3-hover-opacity"></i>
-    <i class="fab fa-pinterest-square w3-hover-opacity"></i>
-    <i class="fab fa-linkedin w3-hover-opacity"></i>
-  </div>
-</footer>
-
 <script>
 // Tabs
 function openLink(evt, linkName) {
@@ -132,20 +114,12 @@ function openLink(evt, linkName) {
   evt.currentTarget.className += " w3-red";
 }
 // Click on the first tablink on load
-document.getElementsByClassName("tablink")[0].click();
+//document.getElementsByClassName("tablink")[0].click();
 </script>
 
-<!-- Import and configure the Firebase SDK -->
-<!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
-<!-- If you do not want to serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
-<script src="/__/firebase/5.5.9/firebase-app.js"></script>
-<script src="/__/firebase/5.5.9/firebase-auth.js"></script>
-<script src="/__/firebase/5.5.9/firebase-database.js"></script>
-<script src="/__/firebase/5.5.9/firebase-storage.js"></script>
-<script src="/__/firebase/5.5.9/firebase-messaging.js"></script>
-<script src="/__/firebase/init.js"></script>
 
-<script src="../scripts/betterment.js"></script>
 
 </body>
 </html>
+
+
