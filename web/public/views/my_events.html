@@ -94,8 +94,10 @@ hr.event_hr{
   margin: 0px;
   padding: 0px;}
 
+.hide{ display:none; }
 
 </style>
+
 
 <body class="w3-light-grey">
 
@@ -103,9 +105,9 @@ hr.event_hr{
 <div class="w3-bar w3-white w3-large topnav">
   <a href="Betterment_Brigade-home.html" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fas fa-american-sign-language-interpreting"></i>Betterment Brigade</a>
   <!--<a href="#Home" class="w3-bar-item w3-button w3-light-grey w3-mobile">Home</a>-->
-  <a href="create_event_page.html" class="w3-bar-item w3-button w3-mobile w3-light-red">Create an Event</a>
+  <a href="create_event_page.html" class="w3-bar-item w3-button w3-mobile w3-light-red">Events</a>
   <a href="login.html" id="log-in" class="w3-bar-item w3-button w3-mobile">Log In</a>
-  <a href="" id="log-out" class="w3-bar-item w3-button w3-mobile">Sign Out</a>
+  <a href="" class="hide" id="log-out" class="w3-bar-item w3-button w3-mobile">Sign Out</a>
   <div class="search-container">
       <input id="user_input" type="text" placeholder="Search.." name="search">
       <button id="search" type="submit" class="w3-button w3-hover-red w3-text-grey"><i class="fa fa-search"></i></button>
@@ -127,7 +129,8 @@ hr.event_hr{
 <div class="w3-padding-64 w3-center">
 <div class="w3-bar w3-border">
     <a href="create_event_page.html" class="w3-bar-item w3-button">New Event</a>   
-    <a href="edit_upcoming_event.html" class="w3-bar-item w3-button w3-red">See Your Events</a>  
+    <a href="edit_upcoming_event.html" class="w3-bar-item w3-button">Events By You</a>  
+    <a href="my_events.html" class="w3-bar-item w3-button w3-red">Events Attending</a>  
   </div>
 </div>
 
@@ -135,6 +138,8 @@ hr.event_hr{
 <script src="jquery/js/jquery-1.9.0.min.js"></script>
   <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+  <script src="../scripts/l_flow.js"></script>
+
   <script>
     // Initialize Firebase
     var config = {
@@ -152,14 +157,42 @@ hr.event_hr{
 
 
   <script>
+
+            var ids = [];
+
     var database = firebase.database();
     var ref = database.ref('Published_Event')
-    ref.once('value',getData)
+
+
+$( document ).ready(function() {
+
+    var user_event = '/userEvent/' + localStorage.getItem("uid") + '/';
+    var user_ref = database.ref(user_event);
+
+
+    user_ref.once('value').then(function(data){
+      if(data.val()!=null){
+        for (let [key, value] of Object.entries(data.val())) {
+          console.log(value);
+          ids.push(value["event_key"]);
+        }
+
+      }
+    }).then(function(){
+            ref.once('value',getData)
+          })
+  })
+
         function getData(data){
+          console.log(ids)
           var guess = data.val();
           var keys = Object.keys(guess);
         for(var i = 0; i < keys.length; i++){
           var keyvalue = keys[i]
+
+          if(ids.includes(keyvalue)==false)
+            continue;
+
           var datestart = guess[keyvalue].StartDate;
           var dateend = guess[keyvalue].EndDate;
           var title = guess[keyvalue].Title;
@@ -207,9 +240,10 @@ hr.event_hr{
 
 
           var editButton = document.createElement("BUTTON"); 
-            var t = document.createTextNode("Edit");
+            var t = document.createTextNode("More");
             editButton.appendChild(t);
             editButton.className = "Edit w3-button w3-dark-grey"
+            editButton.value = keyvalue
             div_inner.appendChild(editButton)
 
           var deleteButton = document.createElement("BUTTON"); 
@@ -220,14 +254,15 @@ hr.event_hr{
           }
 
           $('.Edit').click(function(){
-            localStorage.setItem("key",this.closest('div').id);
-            window.location.assign('edit_page.html')     
+            localStorage.setItem("event_id",this.closest('div').id);
+            window.location.assign('view_event_page.html')     
            });
 
         $('.Delete').click(function(){
           if (confirm("Are you sure to delete the event?")) {
           var temp = this.closest('div').id;
-          ref.child(temp).remove()
+          // var item = "/userEvent/" + getID() + "/" + temp
+          // ref.child(item).remove()
           $(this).closest('div').remove();
           $("img[id=" + temp + "]").remove();
           }
@@ -244,35 +279,9 @@ hr.event_hr{
            });
 </script>
 
-
   <!-- Explore Nature -->
   <div id="eventsList" class="w3-row-padding">
 
-    <div class="w3-half w3-margin-bottom">
-      <img src="oppo1.png" alt="Clean the beach" style="width:100%">
-      <div class="w3-container w3-white">
-        <h3>Ocean helper</h3>
-        <p class="w3-opacity">Event date: 8/20/2020</p>
-        <p class="w3-opacity">Event location: venice beach/LA</p>
-        <p>Come help clean the garbage off venice beach</p>
-        <form>
-        <input class="w3-button w3-dark-grey" type="submit" value="Edit">
-      </form>
-      </div>
-  </div>
-
-    <div class="w3-half w3-margin-bottom">
-      <img src="oppo2.jpg" alt="Plant a tree" style="width:100%">
-      <div class="w3-container w3-white">
-        <h3>Plant a tree</h3>
-        <p class="w3-opacity">Event date: 4/13/2019 (Only 3 days left!)</p>
-        <p class="w3-opacity">Event location: Muirwood park/SF</p>
-        <p>Plant a tree and bring more green to the world.</p>
-        <form>
-        <input class="w3-button w3-dark-grey" type="submit" value="Edit">
-      </form>
-      </div>
-  </div>
 
   </div>
   

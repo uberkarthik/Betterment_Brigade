@@ -40,6 +40,12 @@ input[type=submit] {
     text-shadow:none;
 }
 
+.search-container{
+  display: none 
+}
+
+.hide { display:none; }
+
 </style>
 
 <head>
@@ -86,8 +92,9 @@ input[type=submit] {
   <header class="w3-bar w3-white w3-large">
     <div class="w3-bar w3-white w3-large topnav">
       <a href="Betterment_Brigade-home.html" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fas fa-american-sign-language-interpreting"></i>Betterment Brigade</a>
-      <a href="create_event_page.html" class="w3-bar-item w3-button w3-mobile">Create an Event</a>
-      <a href="login.html" class="w3-bar-item w3-button w3-mobile">Log In</a>
+      <a href="create_event_page.html" class="w3-bar-item w3-button w3-mobile">Events</a>
+      <a href="login.html" id="log-in" class="w3-bar-item w3-button w3-mobile">Log In</a>
+      <a href="" id="log-out" class="w3-bar-item w3-button w3-mobile hide">Sign Out</a>
   <div class="search-container">
     <form action="sample_results_page.html">
       <input type="text" placeholder="Search.." name="search">
@@ -151,7 +158,10 @@ input[type=submit] {
 <script src="/__/firebase/5.5.9/firebase-storage.js"></script>
 <script src="/__/firebase/5.5.9/firebase-messaging.js"></script>
 <script src="/__/firebase/init.js"></script>
+<script src="jquery/js/jquery-1.9.0.min.js"></script>
+  <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
 
 <script src="../scripts/main.js"></script>
+<script src="../scripts/l_flow.js"></script>
 </body>
 </html>

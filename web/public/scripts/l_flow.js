@@ -9,6 +9,11 @@ function getUserName() {
   return firebase.auth().currentUser.displayName;
 }
 
+function getUid() {
+  console.log(firebase.auth().currentUser)
+  return firebase.auth().currentUser.uid;
+}
+
 function signIn() {
   // Sign in Firebase using popup auth and Google as the identity provider.
   var provider = new firebase.auth.GoogleAuthProvider();
@@ -22,21 +27,21 @@ function isUserSignedIn() {
 }
 
 function signOut() {
-  console.log("hai");
+  // console.log("hai");
   // Sign out of Firebase.
   firebase.auth().signOut();
+  
 }
 
 function authStateObserver(user) {
   if (user) { 
     var profilePicUrl = getProfilePicUrl();
     var userName = getUserName();
-    console.log(getUserName());
     $("#log-in").text(getUserName());
     $("#log-out").removeClass("hide");
-    console.log("hia")
   } else { // User is signed out!
-
+      // alert("You must be signed in to use the service. \n Please click the Sign-In button on the top right corner.")
+            // window.location.href = "login.html"
 
   }
 }

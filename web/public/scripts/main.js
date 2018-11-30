@@ -16,8 +16,9 @@
 
 
 const urlParams = new URLSearchParams(window.location.search);
-const myParam = urlParams.get('id');
+const myParam = localStorage.getItem("event_id");
 var messages = '/messages/' + myParam + '/';
+
 const ref = firebase.database().ref(messages);
 
 // Signs-in Friendly Chat.
