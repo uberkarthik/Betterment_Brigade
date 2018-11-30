@@ -10,54 +10,207 @@
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 .myLink {display: none}
+
+.topnav input[type=text] {
+  border: 1px solid #ccc;
+border-radius: 4px;}
+.topnav .search-container {
+  float: right;
+  margin: 0;
+}
+.w3-container button {
+    margin: 8px;
+    padding-left: auto;
+    padding-right: auto;
+    width: 20%;
+    text-align:center;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow:none;
+
+}
+
+input[type=submit] {
+    margin: 8px;
+    padding: 7px;
+    width: 20%;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow:none;
+}
+
 </style>
+
 <body class="w3-light-grey">
 
 <!-- Navigation Bar -->
-<div class="w3-bar w3-white w3-large">
-  <a href="#" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fas fa-american-sign-language-interpreting"></i>Betterment Brigade</a>
-  <a href="#Home" class="w3-bar-item w3-button w3-mobile">Home</a>
+<div class="w3-bar w3-white w3-large topnav">
+  <a href="Betterment_Brigade-home.html" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fas fa-american-sign-language-interpreting"></i>Betterment Brigade</a>
+  <!--<a href="#Home" class="w3-bar-item w3-button w3-light-grey w3-mobile">Home</a>-->
   <a href="create_event_page.html" class="w3-bar-item w3-button w3-mobile">Create an Event</a>
-  <a href="#Log_In" class="w3-bar-item w3-button w3-mobile">Log In</a>
-  <a href="#Sign_Up" class="w3-bar-item w3-button w3-mobile">Sign Up</a>
+  <a href="login.html" class="w3-bar-item w3-button w3-mobile">Log In</a>
+  <div class="search-container">
+
+      <input id="user_input" type="text" placeholder="Search.." name="search">
+      <button id="search" type="submit" class="w3-button w3-hover-red w3-text-grey"><i class="fa fa-search"></i></button>
+
+  </div>
+
 </div>
 
-<header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
-  <img class="w3-image" src="Lisk_Feng_ST1.jpg" width="1500" height="700">
+
 </header>
 
-<!-- Page content -->
-<div class="w3-content" id="event" style="max-width:1100px;">
-</div>
 
-  <!-- Newsletter -->
-  <div class="w3-container">
-    <div class="w3-panel w3-padding-16 w3-grey w3-card ">
-      <h2>Get the notification first!</h2>
-      <p>Join our newsletter.</p>
-      <label>E-mail</label>
-      <input class="w3-input w3-border" type="text" placeholder="Your Email address">
-      <button type="button" class="w3-button w3-red w3-margin-top">Subscribe</button>
+<!-- Page content -->
+
+<script src="jquery/js/jquery-1.9.0.min.js"></script>
+  <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDvaotjUxQJGK3hserXMZNbmSmqoaM6B0g",
+      authDomain: "friendlychat-95c3a.firebaseapp.com",
+      databaseURL: "https://friendlychat-95c3a.firebaseio.com",
+      projectId: "friendlychat-95c3a",
+      storageBucket: "friendlychat-95c3a.appspot.com",
+      messagingSenderId: "967898898697"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+<script>
+var database = firebase.database();
+var ref = database.ref('Published_Event')
+var event_id = localStorage.getItem("event_id")
+
+const event_info = ref.child(event_id)
+
+
+
+          ref.once('value',getData)
+            function getData(data){
+                var guess = data.val();
+                var key = localStorage.getItem("event_id")
+                console.log(guess)
+                console.log(key)
+                document.getElementById('Event_Title').innerHTML= guess[key].Title
+                // document.getElementById('location').value=guess[key].Location
+                document.getElementById('City').innerHTML=guess[key].City
+                document.getElementById('date_start').innerHTML=guess[key].StartDate
+                // document.getElementById('date_end').value=guess[key].EndDate
+                document.getElementById('froala-editor').innerHTML=guess[key].Description
+                // document.getElementById('zip_code').value=guess[key].Zipcode
+
+                console.log(document.getElementById('Event_Title').innerHTML)
+
+
+// event_info.once('value',gettData)
+//         function gettData(data){
+//           var guess = data.val();
+//           var keys = Object.keys(guess);
+//         for(var i = 0; i < keys.length; i++){
+//           var keyvalue = keys[i]
+//           var datestart = guess[keyvalue].StartDate;
+//           var dateend = guess[keyvalue].EndDate;
+//           var title = guess[keyvalue].Title;
+//           var location = guess[keyvalue].Location;
+//           var city = guess[keyvalue].City;
+//           var zipcode = guess[keyvalue].Zipcode;
+
+
+
+//           var element = document.getElementById('eventsList');
+
+//           var div = document.createElement('div')
+//           div.id = keyvalue;
+//           div.className = "w3-half w3-margin-bottom"
+//           element.prepend(div)
+
+//           var img = document.createElement('img')
+//           img.setAttribute('src', "oppo3.jpeg");
+//           img.setAttribute("width", "100%");
+//           div.appendChild(img)
+//           img.id = keyvalue
+
+//           var div_inner = document.createElement('div')
+//           div_inner.className = "w3-container w3-white"
+//           div_inner.id = keyvalue;
+//           div.appendChild(div_inner)
+
+//           var h = document.createElement('h3')
+//           var t = document.createTextNode(title);
+//           h.appendChild(t);
+//           div_inner.appendChild(h)
+
+//           var para = document.createElement("p");
+//           var t = document.createTextNode("Date: " + datestart.split('T',1));
+//           para.appendChild(t);
+//           div_inner.appendChild(para)
+
+//           var para = document.createElement("p");
+//           var t = document.createTextNode("City: " + city);
+//           para.appendChild(t);
+//           div_inner.appendChild(para)
+
+//           var para = document.createElement("p");
+//           var t = document.createTextNode("Zipcode : " + zipcode);
+//           para.appendChild(t);
+//           div_inner.appendChild(para)
+
+
+//            var enroll = document.createElement("BUTTON");
+//             var t = document.createTextNode("Enroll");
+//             enroll.appendChild(t);
+//             enroll.className = "Enroll w3-button w3-dark-grey"
+//             div_inner.appendChild(enroll)
+
+//           var chat = document.createElement("BUTTON");
+//             var t = document.createTextNode("Chat");
+//             chat.appendChild(t);
+//             chat.className = "Chat w3-button w3-dark-grey"
+//             div_inner.appendChild(chat)
+//         }
+
+
+
+$('.Chat').click(function(){
+            window.location.assign('chat.html')
+           });
+}
+
+</script>
+<script>
+    $('#search').click(function(){
+            localStorage.setItem("search",document.getElementById('user_input').value);
+            window.location.assign('sample_results_page.html')
+           });
+</script>
+
+<div class="w3-content w3-middle" style="max-width:1100px;">
+  <br>
+<div class="w3-row-padding">
+    <div id='eventsList' class="w3-margin-bottom">
+      <a href="#Ocean_helper"><img src="oppo1.png" alt="Clean the beach" style="width:100%"></a>
+      <div class="w3-container w3-white">
+        <h3 id='Event_Title'>Ocean helper</h3>
+        <p id='date_start' class="w3-opacity">Event date: 8/20/2020</p>
+        <p id='City' class="w3-opacity">Event location: venice beach/LA</p>
+        <p id='froala-editor'>Come help clean the garbage off venice beach</p>
+        <div class="w3-margin-bottom">
+           <input type="submit" id="submit" class="w3-button w3-dark-grey" value="Enroll" onclick="window.location='view_event_page.html'">
+           <input type="submit" id="submit" class="w3-button w3-dark-grey" value="Chat" onclick="window.location='chat.html'">
+        </div>
+      </div>
     </div>
   </div>
-  
-  <!-- Contact -->
-  <div class="w3-container">
-    <h2>Contact</h2>
-    <p>Need help?</p>
-    <i class="fa fa-map-marker" style="width:30px"></i> Los Angeles, US<br>
-    <i class="fa fa-phone" style="width:30px"></i> Phone: +00 123456<br>
-    <i class="fa fa-envelope" style="width:30px"> </i> Email: betterment_bridage@gmail.com<br>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
-      <p><button class="w3-button w3-black w3-padding-large" type="submit">SEND MESSAGE</button></p>
-    </form>
-  </div>
-  
-<!-- End page content -->
 </div>
+
+
+
 
 <!-- Footer -->
 <footer class="w3-container w3-center w3-opacity w3-margin-bottom">
@@ -72,36 +225,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
   </div>
 </footer>
 
-<script>
-// Tabs
-function openLink(evt, linkName) {
-  var i, x, tablinks;
-  x = document.getElementsByClassName("myLink");
-  for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < x.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
-  }
-  document.getElementById(linkName).style.display = "block";
-  evt.currentTarget.className += " w3-red";
-}
-// Click on the first tablink on load
-// document.getElementsByClassName("tablink")[0].click();
 
-</script>
-
-<script src="../jquery/js/jquery-1.9.0.min.js"></script>
-<script src="../jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
-<script src="/__/firebase/5.5.9/firebase-app.js"></script>
-<script src="/__/firebase/5.5.9/firebase-auth.js"></script>
-<script src="/__/firebase/5.5.9/firebase-database.js"></script>
-<script src="/__/firebase/5.5.9/firebase-storage.js"></script>
-<script src="/__/firebase/5.5.9/firebase-messaging.js"></script>
-<script src="/__/firebase/init.js"></script>
-
-<script src="../scripts/view_event.js"></script>
 
 </body>
 </html>

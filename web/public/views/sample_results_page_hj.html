@@ -71,11 +71,12 @@ input[type=submit] {
 
 <!-- Navigation Bar -->
 <div class="w3-bar w3-white w3-large">
-  <a href="#Home" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fas fa-american-sign-language-interpreting"></i>Betterment Brigade</a>
-  <!--<a href="#Home" class="w3-bar-item w3-button w3-light-grey w3-mobile">Home</a>-->
-  <a href="create_event_page.html" class="w3-bar-item w3-button w3-mobile">Create an Event</a>
+  <a href="#" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fas fa-american-sign-language-interpreting"></i>Betterment Brigade</a>
+  <a href="Betterment Brigade-home.html" class="w3-bar-item w3-button w3-light-grey w3-mobile">Home</a>
+  <a href="event_page.html" class="w3-bar-item w3-button w3-mobile">Create an Event</a>
+  <a href="search_events_page.html" class="w3-bar-item w3-button w3-mobile">Search Events</a>
   <a href="#Log_In" class="w3-bar-item w3-button w3-mobile">Log In</a>
-  <!--<a href="#Sign_Up" class="w3-bar-item w3-button w3-mobile">Sign Up</a>-->
+  <a href="#Sign_Up" class="w3-bar-item w3-button w3-mobile">Sign Up</a>
 </div>
 
 <!-- Header -->
@@ -86,9 +87,7 @@ input[type=submit] {
 
 <!-- Page content -->
 <div class="w3-bar w3-white w3-large" width =100%>
-        <a href="create_event_page.html" class="w3-bar-item w3-button w3-red w3-mobile">New Event</a>   
-        <a href="edit_upcoming_event.html" class="w3-bar-item w3-button w3-red w3-mobile">Edit Upcoming Event</a>  
-        <a href="event_history.html" class="w3-bar-item w3-button w3-red w3-mobile">Event History</a>  
+    <a href="#" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fas fa-american-sign-language-interpreting"></i>Events List</a>   
   </div>
 
 
@@ -99,31 +98,41 @@ input[type=submit] {
   
   
   <div class="w3-container">
-        <br>
-        <br>
-        <br>
-        <div class="w3-row-padding">
-        <div class="w3-half w3-margin-bottom">
-          <a href="#Ocean_helper"><img src="oppo1.png" alt="Clean the beach" style="width:100%"></a>
-          <div class="w3-container w3-white">
-            <h3>Ocean helper</h3>
-            <p class="w3-opacity">Event date: 8/20/2020</p>
-            <p class="w3-opacity">Event location: venice beach/LA</p>
-            <p>Come help clean the garbage off venice beach</p>
-          </div>
-        </div>
-        <div class="w3-half w3-margin-bottom">
-          <a href="#Plant_a_tree"><img src="oppo2.jpg" alt="Plant a tree" style="width:100%"></a>
-          <div class="w3-container w3-white">
-            <h3>Plant a tree</h3>
-            <p class="w3-opacity">Event date: 4/13/2019 (Only 3 days left!)</p>
-            <p class="w3-opacity">Event location: Muirwood park/SF</p>
-            <p>Plant a tree and bring more green to the world.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    
+            <header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
+                <img src="https://i.imgur.com/LVSiGIp.png" width="1000" height="500">
+                <div class="w3-display-middle" style="width:65%">
+                  <div class="w3-container w3-red">
+                    <h2><i class="fas fa-american-sign-language-interpreting"></i>Events List</h2>
+                  </div>
+                  <div class="w3-container w3-white w3-padding-1">
+                    <h4>Beach Clean Up Event</h4>
+                    <h>Description: Help us pick trash in the Santa Monica Beaches</br><h>
+                    <h>Zipcode: 90401<h>
+                    <div class="w3-container w3-white w3-padding-1">
+                                              <div class="w3-row-padding" style="margin:0 -16px;">
+                                                <div class="w3-margin-bottom">
+                                                        <input type="submit" id="submit"value="More Info" onclick="window.location='view_event_page.html'">
+                                                    </div>
+                                              </div>
+                                          </div>
+                  </div>
+                  <div class="w3-container w3-white w3-padding-1">
+                    <h4>Help the Elderly</h4>
+                    <h>Description: We are looking for volunters to help run our nonprofit organization that helps the elderly in the senior center</br><h>
+                    <h>Zipcode: 90024<h>
+                    <div class="w3-container w3-white w3-padding-1">
+                                              <div class="w3-row-padding" style="margin:0 -16px;">
+                                                <div class="w3-margin-bottom">
+                                                        <input type="submit" id="submit"value="More Info" onclick="window.location='view_event_page.html'">
+                                                    </div>
+                                              </div>
+                                          </div>
+                  </div>       
+                </div>
+              </header>
+  </div>
+    
 
 
 
