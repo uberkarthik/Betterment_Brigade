@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<title>Betterment Brigade</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+.myLink {display: none}
+
+.topnav input[type=text] {
+  padding: 0px;
+  width: 75%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;}
+
+input[type=text] {
+    width: 50%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=datetime-local] {
+    width: 30%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+
+}
+
+input[type=submit] {
+    margin: 8px;
+    padding: 7px;
+    width: 20%;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow:none;
+}
+
+#froala-editor:focus {
+  width: 100%;
+}
+
+#submit{
+  background-color: rgb(94, 161, 88);
+
+}
+
+.hide{
+  display:none;  
+}
+
+
+.topnav input[type=submit] {
+  margin: 0px;
+  padding: 0px;}
+
+.topnav .search-container {
+  float: right;
+  margin: 0;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+}
+
+
+</style>
+
+<body class="w3-light-grey" background="">
+
+<!-- Navigation Bar -->
+<div class="w3-bar w3-white w3-large topnav">
+  <a href="Betterment_Brigade-home.html" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fas fa-american-sign-language-interpreting"></i>Betterment Brigade</a>
+  <!--<a href="#Home" class="w3-bar-item w3-button w3-light-grey w3-mobile">Home</a>-->
+  <a href="create_event_page.html" class="w3-bar-item w3-button w3-mobile w3-light-red">Create an Event</a>
+  <a href="login.html" id="log-in" class="w3-bar-item w3-button w3-mobile">Log In</a>
+  <a href="" id="log-out" class="w3-bar-item w3-button w3-mobile">Sign Out</a>
+  <div class="search-container">
+
+      <input id="user_input" type="text" placeholder="Search.." name="search">
+      <button id="search" type="submit" class="w3-button w3-hover-red w3-text-grey"><i class="fa fa-search"></i></button>
+
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
+  <!--<img class="w3-image" src="https://i.imgur.com/q48inZz.jpg" width=100% height="700">-->
+  <div class="w3-display-middle" style="width:65%"></div>
+</header>
+
+<!-- Page content -->
+
+<div class="w3-content" style="max-width:1100px;">
+
+
+
+<div class="w3-padding-64 w3-center">
+<div class="w3-bar w3-border">
+    <a href="create_event_page.html" class="w3-bar-item w3-button w3-red">New Event</a>   
+    <a href="edit_upcoming_event.html" class="w3-bar-item w3-button">See Your Events</a>  
+  </div>
+</div>
+
+
+<div class="w3-container w3-border">
+
+
+  <!-- Explore Nature --> 
+                  
+                    <div class="w3-container w3-padding-1">
+                      <h5>Event Title:<h5>
+                        <div class="w3-row-padding" style="margin:0 -16px;">
+                          <div class="w3-margin-bottom">
+                            <input id='Event_Title' type="text" placeholder="Your event name">
+                          </div>
+                        </div>
+                    </div>
+                      <div class="w3-container w3-padding-1">
+                            <h5>Location:</h5>
+                              <div class="w3-row-padding" style="margin:0 -16px;">
+                                <div class="w3-margin-bottom">
+                                  <input id="location" type="text" placeholder="e.g. CA">
+                                </div>
+                              </div>
+                          </div>
+                          <div class="w3-container w3-padding-1">
+                          <h5>City:</h5>
+                              <div class="w3-row-padding" style="margin:0 -16px;">
+                                <div class="w3-margin-bottom">
+                                  <input id="City" type="text" placeholder="City name">
+                                </div>
+                              </div>
+                          </div>
+                          <div class="w3-container w3-padding-1">
+                          <h5>State / Province / Region:</h5>
+                              <div class="w3-row-padding" style="margin:0 -16px;">
+                                <div class="w3-margin-bottom">
+                                  <input id='SPR' type="text" placeholder="Full Street Address">
+                                </div>
+                              </div>
+                          </div>
+                          <div class="w3-container w3-padding-1">
+                              <h5>Zip Code:</h5>
+                                  <div class="w3-row-padding" style="margin:0 -16px;">
+                                    <div class="w3-margin-bottom">
+                                      <input id="zip_code" type="text" placeholder="5 digits code">
+                                    </div>
+                                  </div>
+                              </div>
+                          <div class="w3-container w3-padding-1">
+                                <h5>Date:</h5>
+                                  <div class="w3-row-padding" style="margin:0 -16px;">
+                                    <div class="w3-margin-bottom">
+                                            <p>Starts</p>
+                                            <input id="date_start" type="datetime-local" value="2018-11-06T19:30"></br>
+                                            <p>Ends</p> 
+                                            <input id="date_end" type="datetime-local" value="2018-11-06T19:30">                          
+                                        </div>
+                                  </div>
+                              </div>
+                              <div class="w3-container w3-padding-1">
+                                    <h5>Description:</h5>
+                                      <div class="w3-row-padding" style="margin:0 -16px;">
+                                        <div class="w3-margin-bottom">
+                                            <textarea id="froala-editor"></textarea>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="w3-container w3-padding-16">
+                                          <div class="w3-row-padding" style="margin:0 -16px;">
+                                            <div class="w3-margin-bottom w3-light-grey">
+                                                    <input type="checkbox"> Send notification to all followers<br>
+                                                </div>
+                                          </div>
+                                      </div>
+                                      <div class="w3-container w3-padding-1">
+                                              <div class="w3-row-padding" style="margin:0 -16px;">
+                                                <div class="w3-margin-bottom">
+                                                        <input type="submit" id="submit" value="Submit">
+                                                    </div>
+                                              </div>
+                                      </div>
+                            
+
+                                  
+
+  
+    
+  
+<!-- End page content -->
+</div>
+
+
+
+
+
+<!-- Footer -->
+<footer class="w3-container w3-center w3-opacity w3-margin-bottom">
+  <h5>Find Us On</h5>
+  <div class="w3-xlarge w3-padding-16">
+    <i class="fab fa-facebook-square w3-hover-opacity"></i>
+    <i class="fab fa-twitter-square w3-hover-opacity"></i>
+    <i class="fab fa-snapchat-square w3-hover-opacity"></i>
+    <i class="fab fa-instagram w3-hover-opacity"></i>
+    <i class="fab fa-pinterest-square w3-hover-opacity"></i>
+    <i class="fab fa-linkedin w3-hover-opacity"></i>
+  </div>
+</footer>
+
+
+<script src="jquery/js/jquery-1.9.0.min.js"></script>
+<script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDvaotjUxQJGK3hserXMZNbmSmqoaM6B0g",
+    authDomain: "friendlychat-95c3a.firebaseapp.com",
+    databaseURL: "https://friendlychat-95c3a.firebaseio.com",
+    projectId: "friendlychat-95c3a",
+    storageBucket: "friendlychat-95c3a.appspot.com",
+    messagingSenderId: "967898898697"
+  };
+  firebase.initializeApp(config);
+</script>
+<script>
+    
+
+  $("#submit").click(function(){
+    if (confirm("Confrim to publish this event")) {
+  var database = firebase.database();
+  var ref = database.ref('Published_Event')
+
+  var event_title = document.getElementById('Event_Title').value
+  var location = document.getElementById('location').value
+  var city = document.getElementById('City').value
+  var datestart = document.getElementById('date_start').value
+  var dateend = document.getElementById('date_end').value
+  var description = document.getElementById('froala-editor').value
+  var zipcode = document.getElementById('zip_code').value
+  var data ={
+    Title: event_title,
+    Location: location,
+    City: city,
+    StartDate: datestart,
+    EndDate: dateend,
+    Description: description,
+    Zipcode: zipcode
+  }  
+  ref.push(data).then(function second(){
+  document.getElementById('Event_Title').value=''
+  document.getElementById('location').value=''
+  document.getElementById('City').value=''
+  document.getElementById('date_start').value=''
+  document.getElementById('date_end').value=''
+  document.getElementById('froala-editor').value=''
+  document.getElementById('zip_code').value=''
+  window.location.assign('edit_upcoming_event.html')
+  })
+  
+    }
+
+})
+
+
+  $("#save").click(function(){
+  // var database = firebase.database();
+  // var ref = database.ref('Save_Event')
+
+  // var event_title = document.getElementById('Event_Title').value
+  // var location = document.getElementById('location').value
+  // var city = document.getElementById('City').value
+  // var datestart = document.getElementById('date_start').value
+  // var dateend = document.getElementById('date_end').value
+  // var description = document.getElementById('froala-editor').value
+  // var zipcode = document.getElementById('zip_code').value
+  // var data ={
+  //   Title: event_title,
+  //   Location: location,
+  //   City: city,
+  //   StartDate: datestart,
+  //   EndDate: dateend,
+  //   Description: description,
+  //   Zipcode:zipcode
+  // }
+  // ref.push(data)
+})
+
+</script>
+
+<script>
+    $('#search').click(function(){
+            localStorage.setItem("search",document.getElementById('user_input').value);
+            window.location.assign('sample_results_page.html')     
+           });
+</script>
+
+</body>
+</html>
